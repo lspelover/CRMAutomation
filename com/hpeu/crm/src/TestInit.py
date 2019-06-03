@@ -11,32 +11,34 @@ from time import sleep
 class TestInit():
     
     getValue = GetValues()
+    def __init__(self,object):
+        self.driver = object
           
-    def login(self,driver):
+    def login(self):
         username_xpath=self.getValue.getPageElementValue("XPATH", "LoginPage_LoginNameBox")
         username=self.getValue.getTestDataValue("TestData", "UserName")
         password_xpath=self.getValue.getPageElementValue("XPATH", "LoginPage_PasswordBox")
         password=self.getValue.getTestDataValue("TestData", "PassWord")
         loginbtn_xpath=self.getValue.getPageElementValue("XPATH", "LoginPage_LoginButton")
         
-        driver.find_element_by_xpath(username_xpath).send_keys(username)
-        driver.find_element_by_xpath(password_xpath).send_keys(password)
-        driver.find_element_by_xpath(loginbtn_xpath).click()
-        driver.implicitly_wait(5)
+        self.driver.find_element_by_xpath(username_xpath).send_keys(username)
+        self.driver.find_element_by_xpath(password_xpath).send_keys(password)
+        self.driver.find_element_by_xpath(loginbtn_xpath).click()
+        self.driver.implicitly_wait(5)
         sleep(3)
 
     
-    def logOff(self,driver):
+    def logOff(self):
         logoffbtn_xpath = self.getValue.getPageElementValue("XPATH", "HomePage_LogOffOption")
-        driver.find_element_by_xpath(logoffbtn_xpath).click()
-        driver.implicitly_wait(5)
+        self.driver.find_element_by_xpath(logoffbtn_xpath).click()
+        self.driver.implicitly_wait(5)
         sleep(3)
 
-    def closeCurrentTab(self,driver):
-        driver.close()
+    def closeCurrentTab(self):
+        self.driver.close()
         
-    def closeCurrentBrowser(self,driver):
-        driver.quit()
+    def closeCurrentBrowser(self):
+        self.driver.quit()
 
 
 
