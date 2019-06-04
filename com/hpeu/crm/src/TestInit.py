@@ -15,11 +15,11 @@ class TestInit():
         self.driver = object
           
     def login(self):
-        username_xpath=self.getValue.getPageElementValue("XPATH", "LoginPage_LoginNameBox")
-        username=self.getValue.getTestDataValue("TestData", "UserName")
-        password_xpath=self.getValue.getPageElementValue("XPATH", "LoginPage_PasswordBox")
-        password=self.getValue.getTestDataValue("TestData", "PassWord")
-        loginbtn_xpath=self.getValue.getPageElementValue("XPATH", "LoginPage_LoginButton")
+        username_xpath=self.getValue.getPageElementValue(3, 2)
+        username=self.getValue.getTestDataValue(3, 2)
+        password_xpath=self.getValue.getPageElementValue(4, 2)
+        password=self.getValue.getTestDataValue(4, 2)
+        loginbtn_xpath=self.getValue.getPageElementValue(5, 2)
         
         self.driver.find_element_by_xpath(username_xpath).send_keys(username)
         self.driver.find_element_by_xpath(password_xpath).send_keys(password)
@@ -29,7 +29,7 @@ class TestInit():
 
     
     def logOff(self):
-        logoffbtn_xpath = self.getValue.getPageElementValue("XPATH", "HomePage_LogOffOption")
+        logoffbtn_xpath = self.getValue.getPageElementValue(6, 2)
         self.driver.find_element_by_xpath(logoffbtn_xpath).click()
         self.driver.implicitly_wait(5)
         sleep(3)

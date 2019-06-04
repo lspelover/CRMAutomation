@@ -21,41 +21,41 @@ class TestCreateClue(unittest.TestCase):
         self.testInit.login()
 
     def testCreateClue(self):
-        createclueoption_linktext = self.getValue.getPageElementValue("LINK_TEXT", "HomePage_CreateClueOption")
+        createclueoption_linktext = self.getValue.getPageElementValue(3, 11)
         self.myDriver.find_element_by_link_text(createclueoption_linktext).click()
         sleep(3)
         self.getScreenshot.getScreenshot("CreateCluePage")
         
         #input clue information
-        comname_id=self.getValue.getPageElementValue("ID", "CreateCluePage_ComNameBox")
-        comname=self.getValue.getTestDataValue("TestData", "CompanyName")
+        comname_id=self.getValue.getPageElementValue(3, 5)
+        comname=self.getValue.getTestDataValue(5, 2)
         self.myDriver.find_element_by_id(comname_id).send_keys(comname)
         
-        contactname_id=self.getValue.getPageElementValue("ID", "CreateCluePage_ContactNameBox")
-        contactname=self.getValue.getTestDataValue("TestData", "ContactName")
+        contactname_id=self.getValue.getPageElementValue(4, 5)
+        contactname=self.getValue.getTestDataValue(6, 2)
         self.myDriver.find_element_by_id(contactname_id).send_keys(contactname)
         
-        saltname_xpath=self.getValue.getPageElementValue("XPATH", "CreateCluePage_SaltNameBox")
-        saltnameselection_xpath=self.getValue.getPageElementValue("XPATH", "CreateCluePage_SaltNameSelection")
+        saltname_xpath=self.getValue.getPageElementValue(7, 2)
+        saltnameselection_xpath=self.getValue.getPageElementValue(8, 2)
         self.myDriver.find_element_by_xpath(saltname_xpath).click()        
         self.myDriver.find_element_by_xpath(saltnameselection_xpath).click()
         
-        mobile_id=self.getValue.getPageElementValue("ID", "CreateCluePage_MobileBox")
-        mobile=self.getValue.getTestDataValue("TestData", "MobileNumber")
+        mobile_id=self.getValue.getPageElementValue(5,5)
+        mobile=self.getValue.getTestDataValue(7, 2)
         self.myDriver.find_element_by_id(mobile_id).send_keys(mobile)
         
-        email_xpath=self.getValue.getPageElementValue("XPATH", "CreateCluePage_EmailBox")
-        email=self.getValue.getTestDataValue("TestData", "Email")
+        email_xpath=self.getValue.getPageElementValue(9, 2)
+        email=self.getValue.getTestDataValue(8, 2)
         self.myDriver.find_element_by_xpath(email_xpath).send_keys(email)
 
         #click save button
-        savebtn_xpath=self.getValue.getPageElementValue("XPATH", "CreateCluePage_SaveButtion")
+        savebtn_xpath=self.getValue.getPageElementValue(10, 2)
         self.myDriver.find_element_by_xpath(savebtn_xpath).click()
 
         self.myDriver.implicitly_wait(5)
         sleep(3)
         self.getScreenshot.getScreenshot("CreateClueResult")
-        createclueresult=self.getValue.getTestDataValue("VerifyData", "CreateCluePageData")
+        createclueresult=self.getValue.getTestDataValue(5, 5)
         assert createclueresult in self.myDriver.page_source
         
     def tearDown(self):
