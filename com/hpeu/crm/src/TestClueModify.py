@@ -75,4 +75,4 @@ if __name__ == "__main__":
     suites.addTest(TestClueModify("testCludModify"))
     runner=unittest.TextTestRunner()
     runner.run(suites)
-''' 
+'''
