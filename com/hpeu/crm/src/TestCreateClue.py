@@ -61,9 +61,10 @@ class TestCreateClue(unittest.TestCase):
     def tearDown(self):
         self.testInit.logOff()
         self.testInit.closeCurrentBrowser()
-
+'''
 if __name__ == "__main__":
     suites = unittest.TestSuite()
     suites.addTest(TestCreateClue("testCreateClue"))
     Runner = unittest.TextTestRunner()
     Runner.run(suites)
+'''
