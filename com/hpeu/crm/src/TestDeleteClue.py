@@ -10,7 +10,6 @@ from com.hpeu.crm.utils.GetValues import GetValues
 from com.hpeu.crm.utils.Init import Init
 import unittest
 from time import sleep
-from asyncio.runners import run
 
 class TestDeleteClue(unittest.TestCase):
     
