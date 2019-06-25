@@ -3,7 +3,11 @@
 Created on 2019年6月4日
 
 @author: lush
-'''
+   '''
+import sys
+import os
+sys.path.append(os.path.split(os.path.split(os.path.split(os.path.split(os.path.abspath(os.path.dirname(__file__)))[0])[0])[0])[0])
+
 from com.hpeu.crm.src.TestLoginAndLogoff import TestLoginAndLogoff
 from com.hpeu.crm.src.TestCreateClue import TestCreateClue
 from com.hpeu.crm.src.TestClueModify import TestClueModify
@@ -12,6 +16,7 @@ from com.hpeu.crm.src.TestDeleteClue import TestDeleteClue
 from com.hpeu.crm.utils.GetCurrentTime import getTime
 import unittest
 import HTMLTestRunner
+
 
 if __name__ == "__main__":
     suites = unittest.TestSuite()
@@ -24,6 +29,5 @@ if __name__ == "__main__":
     testReport=open(reportName,"wb")
     Runner=HTMLTestRunner.HTMLTestRunner(testReport, title="CRM Automaiton Testing Report", description="Clue Management Testing")
     Runner.run(suites)
-    
-    
+ 
     
